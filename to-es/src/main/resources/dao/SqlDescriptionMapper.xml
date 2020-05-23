@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sucsoft.toes.dao.SqlDescriptionMapper">
+    <insert id="save">
+        insert into sqldescrption(id,columnName,columnDesc,indexName) values(#{id},#{columnName},#{columnDesc},#{indexName})
+    </insert>
+    <update id="updateDesc">
+        update sqldescrption set columnDesc = #{newDesc} where id = #{id}
+    </update>
+    <delete id="remove">
+        delete sqldescrption where id = #{id}
+    </delete>
+    <delete id="removeByIndexName">
+        delete sqldescrption where indexName = #{indexName}
+    </delete>
+    <select id="findByIndexName" resultType="com.sucsoft.toes.bean.ColumnDescVO" useCache="true" flushCache="true">
+        select * from sqldescrption where indexName = #{indexName} order by columnName
+    </select>
+    <select id="getOne" resultType="com.sucsoft.toes.bean.ColumnDescVO">
+        select * from sqldescrption where id = #{id}
+    </select>
+
+</mapper>

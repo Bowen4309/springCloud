@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    #可选任意数据库 仅支持关系型数据库
+    source:
+ #     url: jdbc:oracle:thin:@172.18.0.104:1521:ORCL
+ #     username: d_af
+ #     password: d_af
+ #     driver-class-name: oracle.jdbc.OracleDriver
+ #    #url: jdbc:postgresql://47.99.210.191:5432/postgres
+ #    username: postgres
+ #     password: postgres
+ #     driver-class-name: org.postgresql.Driver
+      url: jdbc:mysql://localhost:3306/lz_ga?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root123@
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    #支持建表语句create table if not exists
+    #为记录当前是否记录历史数据设置
+    cache:
+      url: jdbc:h2:file:E://.h2/cachedb
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+  h2:
+    console:
+      #进行该配置后，h2 web consloe就可以在远程访问了。否则只能在本机访问。
+      settings:
+        web-allow-others: true
+      #进行该配置，就可以通过YOUR_URL/h2-console访问h2 web consloe。YOUR_URL是程序的访问URl。
+      path: /h2-console
+      #进行该配置，程序开启时就会启动h2 web consloe。当然这是默认的，如果你不想在启动程序时启动h2 web consloe，那么就设置为false。
+      enabled: true
+server:
+  port: 8000
+mybatis:
+  configuration:
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: false
+
+logging:
+  level:
+    com.sucsoft.toes.mapper: debug
+    com.sucsoft.toes.dao: debug
+
+
+# 自定义变量,当前设置仅一次
+sql:
+  autoGenerator: false
+  # sql返回结果必须以tablename为返回字段，且字段有且仅有一个
+  initSql: select tablename from pg_tables where schemaname='public'
+  selectPkSql: select pg_attribute.attname as colname from pg_constraint  inner join pg_class on pg_constraint.conrelid = pg_class.oid inner join pg_attribute on pg_attribute.attrelid = pg_class.oid and  pg_attribute.attnum = pg_constraint.conkey[1] inner join pg_type on pg_type.oid = pg_attribute.atttypid  where pg_class.relname = '%s' and pg_constraint.contype='p'
+  selectDesSql: SELECT col_description(a.attrelid,a.attnum) as comment,a.attname as name FROM pg_class as c,pg_attribute as a where c.relname = '%s' and a.attrelid = c.oid and a.attnum>0
+#  initSql: select table_name as tablename from information_schema.tables where table_schema='community-realtymanage'
+#  selectPkSql: select column_name as colname from INFORMATION_SCHEMA.KEY_COLUMN_USAGE  t where t.table_schema='community-realtymanage' and table_name='%s'
+#  selectDesSql: select COLUMN_NAME as name,COLUMN_COMMENT as comment from information_schema.columns where table_schema ='community-realtymanage'  and table_name = '%s';
+
+es:
+  hostname: 127.0.0.1
