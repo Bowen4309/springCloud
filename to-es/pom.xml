@@ -19,7 +19,7 @@
         <swagger.version>2.9.2</swagger.version>
         <swagger.ui.version>1.9.6</swagger.ui.version>
         <mybatis-plus.version>3.1.2</mybatis-plus.version>
-        <postgresql.version>42.2.6</postgresql.version>
+        <postgresql.version>42.3.3</postgresql.version>
     </properties>
 
     <dependencies>
