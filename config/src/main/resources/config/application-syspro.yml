@@ -1,0 +1,68 @@
+############开发环境配置文件###################
+## spring配置
+spring:
+  redis: ## Redis配置
+    host: 124.223.67.131
+    port: 6379
+    password:
+    database: 15
+    jedis:
+      pool:
+        max-active: 100
+        min-idle: 2
+        max-idle: 2
+        max-wait: 500
+  datasource: #数据库配置
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://124.223.67.131:5432/traffic_system
+          username: postgres
+          password: yuanbo123@456
+        branch:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://124.223.67.131:5432/traffic_system
+          username: postgres
+          password: yuanbo123@456
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+
+#mybatis的相关配置
+mybatis:
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+#天河接口地址
+urlToken:
+  https://68.60.0.116:8443/xsp-auth/oauth2/token
+urlApi:
+  http://68.60.0.116:8000/traffic/apiData/getData
+#图片保存地址
+path:
+  /home/picture/
+#上传车牌的ftp地址
+fileChangeFtpUrl:
+  10.41.182.181
+#ftp的端口
+ftpPort:
+  22
+#ftp下载图片保存地址
+localPicturePath:
+  D:/picture/carPicture
+#图片上传的车牌EXCEL
+ftpExcelPath:
+  /send
+#下载图片ftp地址
+ftpPicturePath:
+  /recv
+ftpUser:
+  jjzd
+#ftp密码
+ftpPassWord:
+  cgs182.181@2022
+filePath:
+  /home/file/

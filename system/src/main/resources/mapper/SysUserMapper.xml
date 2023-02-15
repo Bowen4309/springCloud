@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Bibo.system.model.mapper.SysUserMapper">
+    <resultMap id="userList" type="com.Bibo.system.model.pojo.vo.UserListVO">
+        <id column="user_id" property="userId"></id>
+        <result  column="user_name" property="userName"></result>
+        <result  column="user_code" property="userCode"></result>
+        <result  column="police_code" property="policeCode"></result>
+        <result  column="dept_id" property="deptId"></result>
+        <result  column="dept_name" property="deptName"></result>
+        <result  column="status" property="status"></result>
+        <result  column="sex" property="sex"></result>
+        <result  column="create_by" property="createBy"></result>
+        <result  column="create_time" property="createTime"></result>
+        <result  column="update_by" property="updateBy"></result>
+        <result  column="update_time" property="updateTime"></result>
+        <result  column="remark" property="remark"></result>
+        <result  column="password" property="password"></result>
+        <result  column="user_code" property="userCode"></result>
+        <result  column="grid_id" property="gridId"></result>
+        <result  column="grid_name" property="gridName"></result>
+        <result  column="id_card" property="idCard"></result>
+        <collection property="roleList" ofType="java.lang.String">
+            <constructor><arg column="role_id"></arg></constructor>
+        </collection>
+
+    </resultMap>
+
+    <select id="selectUserPageList" resultMap="userList" >
+        SELECT u.user_id,u.user_name,u.user_code,u.password,u.sex,u.police_code,r.role_id,u.dept_id,d.dept_name,u.status,u.create_by,u.create_time,u.update_by,u.update_time,u.remark,u.grid_id,u.grid_name,u.id_card
+        FROM sys_user u LEFT JOIN sys_dept d ON u.dept_id=d.dept_id
+        LEFT JOIN sys_user_role ur ON ur.user_id=u.user_id
+        LEFT JOIN sys_role r ON ur.role_id=r.role_id
+        WHERE u. status='0'
+        <if test="user.userName != null and user.userName != ''">
+        AND u.user_name LIKE concat('%',#{user.userName},'%')
+        </if>
+        ORDER BY u.create_time DESC
+    </select>
+
+    <resultMap id="UserVoResult" type="com.Bibo.common.pojo.LoginUser">
+        <id property="userId" column="user_id"></id>
+        <result  property="userName" column="user_name"></result>
+        <result  property="nickName" column="nick_name"></result>
+        <result  property="sex" column="sex"></result>
+        <result  property="password" column="password"></result>
+        <result  property="policeCode" column="police_code"></result>
+        <result  property="status" column="status"></result>
+        <result  property="gridId" column="grid_id"></result>
+        <result  property="gridName" column="grid_name"></result>
+        <result  property="idCard" column="id_card"></result>
+        <association property="dept" column="dept_id" javaType="com.Bibo.common.pojo.vo.DeptListVO" resultMap="DeptResult"/>
+        <collection property="roleList" column="role_id" javaType="java.util.List" resultMap="RoleResult"/>
+    </resultMap>
+
+    <resultMap id="DeptResult" type="com.Bibo.common.pojo.vo.DeptListVO">
+        <id property="deptId" column="dept_id"></id>
+        <result  property="parentId" column="parent_id"></result>
+        <result  property="deptName" column="dept_name"></result>
+        <result  property="status" column="dept_status"></result>
+        <result  property="deptLevel" column="dept_level"></result>
+        <result  property="parentName" column="parent_name"></result>
+    </resultMap>
+
+    <resultMap id="RoleResult" type="com.Bibo.common.pojo.vo.RoleListVO">
+        <id property="roleId" column="role_id"></id>
+        <result  property="roleName" column="role_name"></result>
+        <result  property="roleKey" column="role_key"></result>
+        <result  property="dataScope" column="data_scope"></result>
+        <result  property="status" column="role_status"></result>
+    </resultMap>
+
+    <!-- select u.user_id,u.dept_id, u.user_name, u.nick_name, u.password, u.sex, u.police_code,u.status,u.grid_id
+        , d.dept_id, d.parent_id, d.dept_name, d.status as dept_status,d.dept_level,
+        r.role_id, r.role_name, r.role_key, r.data_scope, r.status as role_status,u.grid_name
+        from sys_user u
+        left join sys_dept d on u.dept_id = d.dept_id
+        left join sys_user_role ur on ur.user_id = u.user_id
+        left join sys_role r on ur.role_id = r.role_id
+        where u.user_name = #{username} and u.status = '0'  -->
+
+    <select id="selectUserByUserName" parameterType="java.lang.String" resultMap="UserVoResult">
+        select u.user_id,u.dept_id, u.user_name, u.nick_name, u.password, u.sex, u.police_code,u.status,u.grid_id , d.parent_id,
+         d.dept_name, d.status as dept_status,d.dept_level as dept_level,u.grid_name,p.dept_name as parent_name,u.id_card
+        from sys_user u
+        left join sys_dept d on u.dept_id = d.dept_id
+        left join sys_dept p on d.parent_id = p.dept_id
+        where u.user_name = #{username} and u.status = '0'
+    </select>
+
+
+    <select id="selectLoginUserCode" parameterType="java.lang.String" resultMap="UserVoResult">
+        select u.user_id,u.dept_id, u.user_name, u.nick_name, u.password, u.sex, u.police_code,u.status,u.grid_id
+        , d.dept_id, d.parent_id, d.dept_name, d.status as dept_status,d.dept_level ,p.dept_name as parent_name,
+        r.role_id, r.role_name, r.role_key, r.data_scope, r.status as role_status,u.grid_name,u.id_card
+        from sys_user u
+        left join sys_dept d on u.dept_id = d.dept_id
+        left join sys_dept p on d.parent_id = p.dept_id
+        left join sys_user_role ur on ur.user_id = u.user_id
+        left join sys_role r on ur.role_id = r.role_id
+        where u.police_code = #{policeCode}
+    </select>
+</mapper>

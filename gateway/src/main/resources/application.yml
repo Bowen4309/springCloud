@@ -1,0 +1,70 @@
+server:
+  port: 8083
+eureka:
+  client:
+    service-url:
+      # 填写注册中心服务器地址
+      defaultZone: http://127.0.0.1:8080/eureka
+    # 是否需要将自己注册到注册中心
+    register-with-eureka: true
+    # 是否需要搜索服务信息
+    fetch-registry: true
+  instance:
+    # 使用ip地址注册到注册中心
+    prefer-ip-address: true
+    # 注册中心列表中显示的状态参数
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+spring:
+  application:
+    name: traffic-getway
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 120s
+      globalcors:
+        add-to-simple-url-handler-mapping: true #解决options请求被拦截问题
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+            allowedMethods: "*"
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: traffic-map-api
+          uri: lb://traffic-map-api
+          predicates:
+            - Path=/trafficMap/**
+        - id: traffic-system
+          uri: lb://traffic-system
+          predicates:
+            - Path=/trafficSystem/**
+        - id: traffic-analyse-api
+          uri: lb://traffic-analyse-api
+          predicates:
+            - Path=/trafficAnalyse/**
+        - id: traffic-job-api
+          uri: lb://traffic-job-api
+          predicates:
+            - Path=/trafficJob/**
+        - id: traffic-business-api
+          uri: lb://traffic-business-api
+          predicates:
+            - Path=/trafficBusinessApi/**
+        - id: traffic-plug
+          uri: lb://traffic-plug
+          predicates:
+            - Path=/trafficPlug/**
+      default-filters:
+        DedupeResponseHeader : Access-Contro-Allow-Orgin Access-Control-Allow-Credentials Vary,RETAIN_UNIQUE
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri:

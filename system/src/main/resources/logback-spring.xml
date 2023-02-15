@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.springboot.sample" level="INFO"/>
+    <logger name="com.Bibo" level="DEBUG"/>
+
+    <property name="logPath" value="D:/data/log/traffic-system"/>
+    <property name="logFile" value="traffic-system.log"/>
+
+    <appender name="FILE-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${logPath}/${logFile}</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${logPath}daily/${logFile}.%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>[%p] | %d{yyyy-MM-dd HH:mm:ss.SSS} | %t | %X{traceId} | %C{1}:%M | %L | %m %n</Pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE-OUT"/>
+    </root>
+
+</configuration>

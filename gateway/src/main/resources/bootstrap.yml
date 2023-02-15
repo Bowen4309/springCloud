@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      profile: syspro
+      enabled: true
+      discovery:
+        service-id: traffic-config
+      name:  application
+      uri: http://127.0.0.1:8082

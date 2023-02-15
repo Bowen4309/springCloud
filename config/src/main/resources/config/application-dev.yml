@@ -1,0 +1,84 @@
+############开发环境配置文件###################
+## spring配置
+spring:
+  redis: ## Redis配置
+    host: 124.223.67.131
+    port: 6379
+    password:
+    database: 15
+    jedis:
+      pool:
+        max-active: 100
+        min-idle: 2
+        max-idle: 2
+        max-wait: 500
+  datasource: #数据库配置
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://124.223.67.131:5432/traffic_system
+          username: postgres
+          password: yuanbo123@456
+        branch:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://124.223.67.131:5432/traffic_system
+          username: postgres
+          password: yuanbo123@456
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+
+eureka:
+  client:
+    service-url:
+      # 填写注册中心服务器地址
+      defaultZone: http://127.0.0.1:8080/eureka
+    # 是否需要将自己注册到注册中心
+    register-with-eureka: true
+    # 是否需要搜索服务信息
+    fetch-registry: true
+  instance:
+    # 使用ip地址注册到注册中心
+    prefer-ip-address: true
+    # 注册中心列表中显示的状态参数
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+#mybatis的相关配置
+mybatis-plus:
+  mapper-locations: ["classpath*:mapper/*.xml"]
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+#天河接口地址
+urlToken:
+  test
+urlApi:
+  http://localhost:8002/traffic/apiData/postData
+#图片保存地址
+path:
+  D:/picture/
+#上传车牌的ftp地址
+fileChangeFtpUrl:
+  10.41.182.181
+#ftp的端口
+ftpPort:
+  22
+#ftp下载图片保存地址
+localPicturePath:
+  D:\picture\carPicture\
+#图片上传的车牌EXCEL
+ftpExcelPath:
+  /send
+#下载图片ftp地址
+ftpPicturePath:
+  /recv
+ftpUser:
+  jjzd
+#ftp密码
+ftpPassWord:
+  cgs182.181@2022
+filePath:
+  D:\file\

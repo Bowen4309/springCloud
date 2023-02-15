@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      profile: pro
+      enabled: true
+      discovery:
+        service-id: traffic-config
+      name:  application
+      uri: http://68.32.134.8:8082
+#      uri: http://127.0.0.1:8082
