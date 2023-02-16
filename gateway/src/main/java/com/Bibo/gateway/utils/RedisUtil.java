@@ -1,6 +1,6 @@
 //package com.xdh.traffic_getway.utils;
 //
-//import com.xdh.traffic_common.pojo.LoginUser;
+//import com.Bibo.common.pojo.LoginUser;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Lazy;
 //import org.springframework.data.redis.core.RedisTemplate;
