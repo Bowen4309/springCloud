@@ -2,6 +2,9 @@ package com.Bibo.system.model.controller;
 
 
 import cn.hutool.core.util.ObjectUtil;
+import com.Bibo.system.model.pojo.dto.TreeSelect;
+import com.Bibo.system.model.service.ISysDeptService;
+import com.Bibo.system.model.service.ISysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.Bibo.common.annotation.SysLog;
 import com.Bibo.common.constant.OperatorTypeEnum;
@@ -13,9 +16,6 @@ import com.Bibo.common.response.Response;
 import com.Bibo.common.config.redisConfig.RedisUtil;
 import com.Bibo.system.model.pojo.dto.DeptDTO;
 import com.Bibo.system.model.pojo.dto.DeptListDTO;
-import com.Bibo.system.model.pojo.dto.TreeSelect;
-import com.Bibo.system.model.service.ISysDeptService;
-import com.Bibo.system.model.service.ISysUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

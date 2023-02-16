@@ -1,5 +1,9 @@
 package com.Bibo.system.model.service.impl;
 
+import com.Bibo.system.model.pojo.dto.TagTypeDTO;
+import com.Bibo.system.model.pojo.dto.TagTypeTreeDTO;
+import com.Bibo.system.model.pojo.entity.SysTag;
+import com.Bibo.system.model.pojo.entity.SysTagType;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.Bibo.common.config.redisConfig.RedisUtil;
@@ -7,10 +11,6 @@ import com.Bibo.common.pojo.LoginUser;
 import com.Bibo.common.response.Response;
 import com.Bibo.system.model.mapper.SysTagMapper;
 import com.Bibo.system.model.mapper.SysTagTypeMapper;
-import com.Bibo.system.model.pojo.dto.TagTypeDTO;
-import com.Bibo.system.model.pojo.dto.TagTypeTreeDTO;
-import com.Bibo.system.model.pojo.entity.SysTag;
-import com.Bibo.system.model.pojo.entity.SysTagType;
 import com.Bibo.system.model.service.ISysTagTypeService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;

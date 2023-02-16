@@ -1,8 +1,8 @@
 package com.Bibo.common.config.redisConfig;
 
 import com.Bibo.common.constant.UserConstants;
-import com.Bibo.common.pojo.LoginUser;
 import com.Bibo.common.util.ServletUtils;
+import com.Bibo.common.pojo.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

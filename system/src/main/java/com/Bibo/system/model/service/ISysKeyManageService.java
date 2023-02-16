@@ -1,10 +1,10 @@
 package com.Bibo.system.model.service;
 
+import com.Bibo.system.model.pojo.entity.SysKeyManage;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.Bibo.system.model.pojo.dto.KeyManageDTO;
 import com.Bibo.system.model.pojo.dto.KeyManagePageReqDTO;
-import com.Bibo.system.model.pojo.entity.SysKeyManage;
 
 /**
  * <p>

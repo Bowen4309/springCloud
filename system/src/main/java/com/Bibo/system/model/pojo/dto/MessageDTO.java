@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @ApiModel(value = "MessageDTO对象",description = "新增编辑消息详细对象")
 public class MessageDTO {

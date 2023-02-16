@@ -1,11 +1,11 @@
 package com.Bibo.system.model.mapper;
 
+import com.Bibo.system.model.pojo.entity.SysMessage;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.Bibo.system.model.pojo.dto.MessageListDTO;
 import com.Bibo.system.model.pojo.vo.MessagePageListVO;
-import com.Bibo.system.model.pojo.entity.SysMessage;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

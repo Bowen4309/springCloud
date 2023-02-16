@@ -1,5 +1,6 @@
 package com.Bibo.system.model.controller;
 
+import com.Bibo.system.model.pojo.entity.SysKeyManage;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.Bibo.common.annotation.SysLog;
 import com.Bibo.common.config.redisConfig.RedisUtil;
@@ -11,7 +12,6 @@ import com.Bibo.system.model.pojo.dto.KeyManageDTO;
 import com.Bibo.system.model.pojo.dto.KeyManagePageReqDTO;
 import com.Bibo.system.model.pojo.dto.KeyManageReqDTO;
 import com.Bibo.system.model.pojo.dto.KeyManageResDTO;
-import com.Bibo.system.model.pojo.entity.SysKeyManage;
 import com.Bibo.system.model.service.ISysKeyManageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

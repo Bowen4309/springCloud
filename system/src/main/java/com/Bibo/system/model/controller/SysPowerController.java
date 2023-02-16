@@ -2,6 +2,11 @@ package com.Bibo.system.model.controller;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import com.Bibo.system.model.pojo.entity.SysRolePower;
+import com.Bibo.system.model.pojo.entity.SysUserPower;
+import com.Bibo.system.model.service.ISysPowerService;
+import com.Bibo.system.model.service.ISysRolePowerService;
+import com.Bibo.system.model.service.ISysUserPowerService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.Bibo.common.annotation.SysLog;
@@ -15,13 +20,8 @@ import com.Bibo.system.model.pojo.dto.PowerButtonAddDTO;
 import com.Bibo.system.model.pojo.dto.PowerButtonEditDTO;
 import com.Bibo.system.model.pojo.dto.PowerDTO;
 import com.Bibo.system.model.pojo.dto.PowerListDTO;
-import com.Bibo.system.model.pojo.entity.SysRolePower;
-import com.Bibo.system.model.pojo.entity.SysUserPower;
 import com.Bibo.system.model.pojo.vo.PowerListVO;
 import com.Bibo.system.model.pojo.vo.PowerTreeVO;
-import com.Bibo.system.model.service.ISysPowerService;
-import com.Bibo.system.model.service.ISysRolePowerService;
-import com.Bibo.system.model.service.ISysUserPowerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

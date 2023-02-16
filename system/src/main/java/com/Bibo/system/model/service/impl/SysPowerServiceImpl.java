@@ -2,6 +2,7 @@ package com.Bibo.system.model.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
+import com.Bibo.system.model.pojo.entity.SysRolePower;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -21,7 +22,6 @@ import com.Bibo.system.model.mapper.SysPowerMapper;
 import com.Bibo.system.model.mapper.SysRolePowerMapper;
 import com.Bibo.system.model.pojo.dto.PowerDTO;
 import com.Bibo.system.model.pojo.dto.PowerListDTO;
-import com.Bibo.system.model.pojo.entity.SysRolePower;
 import com.Bibo.system.model.pojo.vo.MetaVO;
 import com.Bibo.system.model.pojo.vo.PowerListVO;
 import com.Bibo.system.model.pojo.vo.PowerTreeVO;

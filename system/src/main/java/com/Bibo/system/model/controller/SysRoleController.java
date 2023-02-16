@@ -1,8 +1,13 @@
 package com.Bibo.system.model.controller;
 
 
+import com.Bibo.system.model.pojo.entity.SysRolePower;
+import com.Bibo.system.model.pojo.entity.SysUserRole;
+import com.Bibo.system.model.service.ISysPowerService;
+import com.Bibo.system.model.service.ISysRolePowerService;
+import com.Bibo.system.model.service.ISysRoleService;
+import com.Bibo.system.model.service.ISysUserRoleService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.Bibo.common.annotation.SysLog;
 import com.Bibo.common.constant.OperatorTypeEnum;
@@ -15,13 +20,7 @@ import com.Bibo.system.model.pojo.dto.RoleDTO;
 import com.Bibo.system.model.pojo.dto.RoleListDTO;
 import com.Bibo.system.model.pojo.dto.RolePowerDTO;
 import com.Bibo.system.model.pojo.dto.RoleUsersDTO;
-import com.Bibo.system.model.pojo.entity.SysRolePower;
-import com.Bibo.system.model.pojo.entity.SysUserRole;
 import com.Bibo.system.model.pojo.vo.RolePowerTreeVo;
-import com.Bibo.system.model.service.ISysPowerService;
-import com.Bibo.system.model.service.ISysRolePowerService;
-import com.Bibo.system.model.service.ISysRoleService;
-import com.Bibo.system.model.service.ISysUserRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

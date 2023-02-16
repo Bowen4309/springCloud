@@ -1,8 +1,8 @@
 package com.Bibo.system.model.service.impl;
 
+import com.Bibo.system.model.pojo.entity.SysCustomField;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.Bibo.system.model.mapper.SysCustomFieldMapper;
-import com.Bibo.system.model.pojo.entity.SysCustomField;
 import com.Bibo.system.model.service.ISysCustomFieldService;
 import org.springframework.stereotype.Service;
 

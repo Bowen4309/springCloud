@@ -1,10 +1,10 @@
 package com.Bibo.system.model.service;
 
+import com.Bibo.system.model.pojo.entity.SysMessage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.Bibo.common.pojo.LoginUser;
 import com.Bibo.common.response.Response;
 import com.Bibo.system.model.pojo.dto.MessageListDTO;
-import com.Bibo.system.model.pojo.entity.SysMessage;
 
 import java.util.List;
 

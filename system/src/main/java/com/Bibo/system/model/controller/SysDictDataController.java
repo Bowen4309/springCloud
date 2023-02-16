@@ -2,6 +2,9 @@ package com.Bibo.system.model.controller;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import com.Bibo.system.model.pojo.dto.*;
+import com.Bibo.system.model.pojo.vo.DictListVO;
+import com.Bibo.system.model.service.ISysDictDataService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -11,9 +14,7 @@ import com.Bibo.common.constant.OperatorTypeEnum;
 import com.Bibo.common.pojo.entity.SysDictData;
 import com.Bibo.common.request.BaseController;
 import com.Bibo.common.response.Response;
-import com.Bibo.system.model.pojo.dto.*;
-import com.Bibo.system.model.pojo.vo.DictListVO;
-import com.Bibo.system.model.service.ISysDictDataService;
+import com.xdh.traffic_system.model.pojo.dto.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

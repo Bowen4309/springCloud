@@ -1,10 +1,10 @@
 package com.Bibo.system.model.service.impl;
 
+import com.Bibo.system.model.pojo.dto.UserPowerDTO;
+import com.Bibo.system.model.pojo.entity.SysUserPower;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.Bibo.system.model.mapper.SysUserPowerMapper;
-import com.Bibo.system.model.pojo.dto.UserPowerDTO;
-import com.Bibo.system.model.pojo.entity.SysUserPower;
 import com.Bibo.system.model.service.ISysUserPowerService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

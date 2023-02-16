@@ -1,11 +1,11 @@
 package com.Bibo.system.model.mapper;
 
+import com.Bibo.system.model.pojo.dto.UserListDTO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.Bibo.common.pojo.LoginUser;
 import com.Bibo.common.pojo.entity.SysUser;
-import com.Bibo.system.model.pojo.dto.UserListDTO;
 import com.Bibo.system.model.pojo.vo.UserListVO;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -50,7 +50,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
             "</foreach>"+
             "ORDER BY u.create_time DESC,u.update_time DESC" +
             "</script>")
-    public IPage<UserListVO> selectUserPageList(Page page, @Param("user")UserListDTO user);
+    public IPage<UserListVO> selectUserPageList(Page page, @Param("user") UserListDTO user);
 
     /**
      * 获取用户的菜单路由

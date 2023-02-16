@@ -1,7 +1,7 @@
 package com.Bibo.common.pojo;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.Bibo.common.serializer.Date2LongSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

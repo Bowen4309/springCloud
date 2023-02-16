@@ -1,8 +1,8 @@
 package com.Bibo.system.model.mapper;
 
+import com.Bibo.system.model.pojo.entity.SysBusinessTotal;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.Bibo.system.model.pojo.dto.BusinessTotalApproveDTO;
-import com.Bibo.system.model.pojo.entity.SysBusinessTotal;
 import com.Bibo.common.pojo.entity.SysBusinessUser;
 import org.apache.ibatis.annotations.*;
 

@@ -1,11 +1,11 @@
 package com.Bibo.system.model.service;
 
+import com.Bibo.system.model.pojo.entity.SysBusinessTotal;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.Bibo.common.response.Response;
 import com.Bibo.system.model.pojo.dto.BusinessIndexReqDTO;
 import com.Bibo.system.model.pojo.dto.BusinessTotalListReqDTO;
 import com.Bibo.system.model.pojo.dto.BusinessTotalReqDTO;
-import com.Bibo.system.model.pojo.entity.SysBusinessTotal;
 import com.Bibo.common.pojo.entity.SysBusinessUser;
 import org.springframework.web.multipart.MultipartFile;
 

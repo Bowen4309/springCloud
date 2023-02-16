@@ -1,11 +1,11 @@
 package com.Bibo.system.model.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.Bibo.common.response.Response;
-import com.Bibo.system.model.pojo.dto.MyMessageReqDTO;
 import com.Bibo.system.model.pojo.dto.SysMessageTemplateDTO;
 import com.Bibo.system.model.pojo.dto.SysMessageTemplateListReqDTO;
 import com.Bibo.system.model.pojo.entity.SysMessageTemplate;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.Bibo.common.response.Response;
+import com.Bibo.system.model.pojo.dto.MyMessageReqDTO;
 
 public interface ISysMessageTemplateService extends IService<SysMessageTemplate> {
 

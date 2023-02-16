@@ -1,12 +1,12 @@
 package com.Bibo.system.model.controller;
 
-import com.Bibo.common.annotation.SysLog;
-import com.Bibo.common.constant.OperatorTypeEnum;
-import com.Bibo.common.response.Response;
 import com.Bibo.system.model.pojo.dto.TagDTO;
 import com.Bibo.system.model.pojo.dto.TagTypeDTO;
 import com.Bibo.system.model.service.ISysTagService;
 import com.Bibo.system.model.service.ISysTagTypeService;
+import com.Bibo.common.annotation.SysLog;
+import com.Bibo.common.constant.OperatorTypeEnum;
+import com.Bibo.common.response.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -35,7 +35,7 @@ public class SysTagManageController {
     @SysLog(title="新增标签分类", operatorType= OperatorTypeEnum.INSERT)
     @ApiOperation(value = "新增标签分类",notes = "新增标签分类")
     @PostMapping("/saveTagType")
-    public Response saveTagType(@RequestBody  TagTypeDTO tagTypeDTO){
+    public Response saveTagType(@RequestBody TagTypeDTO tagTypeDTO){
         tagTypeService.saveTagType(tagTypeDTO);
         return Response.success();
     }

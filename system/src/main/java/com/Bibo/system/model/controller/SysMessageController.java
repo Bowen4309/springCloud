@@ -1,15 +1,15 @@
 package com.Bibo.system.model.controller;
 
 
+import com.Bibo.system.model.pojo.dto.SysMessageDTO;
+import com.Bibo.system.model.pojo.dto.SysMessageTemplateDTO;
+import com.Bibo.system.model.pojo.dto.SysMessageTemplateListReqDTO;
+import com.Bibo.system.model.service.ISysMessageTemplateService;
 import com.Bibo.common.annotation.SysLog;
 import com.Bibo.common.constant.OperatorTypeEnum;
 import com.Bibo.common.request.BaseController;
 import com.Bibo.common.response.Response;
 import com.Bibo.system.model.pojo.dto.MyMessageReqDTO;
-import com.Bibo.system.model.pojo.dto.SysMessageDTO;
-import com.Bibo.system.model.pojo.dto.SysMessageTemplateDTO;
-import com.Bibo.system.model.pojo.dto.SysMessageTemplateListReqDTO;
-import com.Bibo.system.model.service.ISysMessageTemplateService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

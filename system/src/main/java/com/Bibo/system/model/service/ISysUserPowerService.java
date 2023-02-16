@@ -1,8 +1,8 @@
 package com.Bibo.system.model.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.Bibo.system.model.pojo.dto.UserPowerDTO;
 import com.Bibo.system.model.pojo.entity.SysUserPower;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>

@@ -1,7 +1,7 @@
 package com.Bibo.system.model.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.Bibo.system.model.pojo.entity.SysUserPower;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

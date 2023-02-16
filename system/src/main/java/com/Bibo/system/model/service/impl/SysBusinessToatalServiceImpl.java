@@ -1,5 +1,7 @@
 package com.Bibo.system.model.service.impl;
 
+import com.Bibo.system.model.pojo.dto.*;
+import com.Bibo.system.model.pojo.entity.SysBusinessTotal;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -13,8 +15,7 @@ import com.Bibo.common.response.ApiResponse;
 import com.Bibo.common.response.Response;
 import com.Bibo.common.util.*;
 import com.Bibo.system.model.mapper.SysBusinessTotalMapper;
-import com.Bibo.system.model.pojo.dto.*;
-import com.Bibo.system.model.pojo.entity.SysBusinessTotal;
+import com.xdh.traffic_system.model.pojo.dto.*;
 import com.Bibo.common.pojo.entity.SysBusinessUser;
 import com.Bibo.system.model.service.ISysBusinessTotalService;
 import com.Bibo.system.model.service.ISysUserService;
@@ -310,7 +311,7 @@ public class SysBusinessToatalServiceImpl extends ServiceImpl<SysBusinessTotalMa
         List<BusinessIndexDataResponDTO> list  = new ArrayList<BusinessIndexDataResponDTO>();
         for(SysBusinessTotal sysBusinessTotal :indexList){
             try {
-                BusinessIndexDataReqDTO  businessIndexDataReqDTO =new BusinessIndexDataReqDTO();
+                BusinessIndexDataReqDTO businessIndexDataReqDTO =new BusinessIndexDataReqDTO();
                 BeanUtils.copyProperties(businessIndexReqDTO,businessIndexDataReqDTO);
                 businessIndexDataReqDTO.setDataType(sysBusinessTotal.getDataType());
                 businessIndexDataReqDTO.setShowType(sysBusinessTotal.getShowType());

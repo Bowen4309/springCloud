@@ -1,12 +1,12 @@
 package com.Bibo.system.model.service;
 
+import com.Bibo.system.model.pojo.dto.TreeSelect;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.Bibo.common.pojo.entity.SysDept;
 import com.Bibo.common.response.Response;
 import com.Bibo.system.model.pojo.dto.DeptDTO;
 import com.Bibo.system.model.pojo.dto.DeptListDTO;
-import com.Bibo.system.model.pojo.dto.TreeSelect;
 import com.Bibo.common.pojo.vo.DeptListVO;
 
 import java.util.List;

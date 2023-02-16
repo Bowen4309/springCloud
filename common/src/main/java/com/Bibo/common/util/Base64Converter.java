@@ -1,5 +1,6 @@
 package com.Bibo.common.util;
 
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 

@@ -1,5 +1,6 @@
 package com.Bibo.system.model.service.impl;
 
+import com.Bibo.system.model.pojo.entity.SysMessage;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -10,7 +11,6 @@ import com.Bibo.common.config.redisConfig.RedisUtil;
 import com.Bibo.system.model.mapper.SysMessageMapper;
 import com.Bibo.system.model.mapper.SysUserMessageMapper;
 import com.Bibo.system.model.pojo.dto.MessageListDTO;
-import com.Bibo.system.model.pojo.entity.SysMessage;
 import com.Bibo.system.model.pojo.vo.MessagePageListVO;
 import com.Bibo.system.model.service.ISysMessageService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.Bibo.system.model.service;
 
-import com.Bibo.common.response.Response;
 import com.Bibo.system.model.pojo.dto.TagTypeDTO;
+import com.Bibo.common.response.Response;
 
 public interface ISysTagTypeService {
 

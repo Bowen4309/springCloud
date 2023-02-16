@@ -41,7 +41,7 @@ public class SysLogAspect {
     /**
      * 配置切入点
      */
-    @Pointcut("@annotation(com.xdh.traffic_common.annotation.SysLog)")
+    @Pointcut("@annotation(com.Bibo.common.annotation.SysLog)")
     public void logPointCut(){}
 
     /**

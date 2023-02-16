@@ -2,12 +2,12 @@
 //
 //import cn.hutool.core.util.ObjectUtil;
 //import cn.hutool.core.util.StrUtil;
-//import com.xdh.traffic_common.annotation.DataScope;
-//import com.xdh.traffic_common.constant.DataScopeEnum;
-//import com.xdh.traffic_common.pojo.BaseDTO;
-//import com.xdh.traffic_common.pojo.UserDTO;
-//import com.xdh.traffic_common.pojo.entity.SysRole;
-//import com.xdh.traffic_common.util.JwtUtils;
+//import com.Bibo.common.annotation.DataScope;
+//import com.Bibo.common.constant.DataScopeEnum;
+//import com.Bibo.common.pojo.BaseDTO;
+//import com.Bibo.common.pojo.UserDTO;
+//import com.Bibo.common.pojo.entity.SysRole;
+//import com.Bibo.common.util.JwtUtils;
 //import org.aspectj.lang.JoinPoint;
 //import org.aspectj.lang.annotation.Aspect;
 //import org.aspectj.lang.annotation.Before;
@@ -19,7 +19,7 @@
 //    /**
 //     * 配置切入点
 //     */
-////    @Pointcut("@annotation(com.xdh.traffic_common.annotation.DataScope)")
+////    @Pointcut("@annotation(com.Bibo.common.annotation.DataScope)")
 ////    public void dataScopePointCut(){}
 //
 //    /**
