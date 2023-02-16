@@ -136,14 +136,14 @@ public class HttpRequestUtil {
             while ((str = bufferedReader.readLine()) != null) {
                 stringBuilder.append(str);
             }
-            log.info("httpRequest URL->" + url);
-            log.info("httpRequest BODY->" + body);
-            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
+//            log.info("httpRequest URL->" + url);
+//            log.info("httpRequest BODY->" + body);
+//            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
         }else{
-            log.info("httpRequest URL->" + url);
-            log.info("httpRequest BODY->" + body);
-            log.info("天河接口调用失败;code:"+code);
-            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
+//            log.info("httpRequest URL->" + url);
+//            log.info("httpRequest BODY->" + body);
+//            log.info("天河接口调用失败;code:"+code);
+//            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
         }
         return stringBuilder.toString();
     }
@@ -187,11 +187,11 @@ public class HttpRequestUtil {
             while ((str = bufferedReader.readLine()) != null) {
                 stringBuilder.append(str);
             }
-            log.info("httpRequest URL->" + url);
-            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
+//            log.info("httpRequest URL->" + url);
+//            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
         }else{
-            log.info("httpRequest URL->" + url);
-            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
+//            log.info("httpRequest URL->" + url);
+//            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
         }
         return stringBuilder.toString();
     }
@@ -414,7 +414,7 @@ public class HttpRequestUtil {
                 e.printStackTrace();
                 return ApiResponse.builder().isSuccess(false).msg("平台转发请求异常，请联系系统管理员").build();
             }
-            log.info(responsData);
+//            log.info(responsData);
             //解析接口返回数据
             ApiResponse apiResponse = ApiResponseUtils.analyseResponseData(responsData);
             return apiResponse;

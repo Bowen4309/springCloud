@@ -19,6 +19,7 @@
         <module>gateway</module>
         <module>job</module>
         <module>plug</module>
+        <module>business</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
@@ -99,6 +100,11 @@
                 <groupId>com.Bibo</groupId>
                 <artifactId>plug</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.Bibo</groupId>
+                <artifactId>business</artifactId>
+                <version>1.0.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

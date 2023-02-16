@@ -14,7 +14,6 @@ import com.Bibo.common.constant.OperatorTypeEnum;
 import com.Bibo.common.pojo.entity.SysDictData;
 import com.Bibo.common.request.BaseController;
 import com.Bibo.common.response.Response;
-import com.xdh.traffic_system.model.pojo.dto.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

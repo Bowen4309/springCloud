@@ -19,12 +19,12 @@ spring:
       datasource:
         master:
           driver-class-name: org.postgresql.Driver
-          url: jdbc:postgresql://124.223.67.131:5432/traffic_system
+          url: jdbc:postgresql://124.223.67.131:5432/system
           username: postgres
           password: yuanbo123@456
         branch:
           driver-class-name: org.postgresql.Driver
-          url: jdbc:postgresql://124.223.67.131:5432/traffic_system
+          url: jdbc:postgresql://124.223.67.131:5432/system
           username: postgres
           password: yuanbo123@456
   jackson:

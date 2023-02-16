@@ -1,16 +1,16 @@
 server:
     servlet:
-        context-path: /system
+        context-path: /business
     # 服务端口号
     port: 8091
 spring:
     application:
         # 服务名称 - 服务之间使用名称进行通讯
-        name: system
+        name: business
 
 swagger:
     enabled: true
-    title: 系统后台
+    title: 业务接口模块
     base-package: com.Bibo
 eureka:
     client:
