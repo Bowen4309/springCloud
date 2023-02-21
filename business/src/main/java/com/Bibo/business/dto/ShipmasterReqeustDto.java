@@ -1,11 +1,13 @@
 package com.Bibo.business.dto;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@ApiModel(value = "ShipmasterReqeustDto",description = "船司数据")
 public class ShipmasterReqeustDto {
 
     @ApiModelProperty("船司代码")
@@ -114,35 +116,13 @@ public class ShipmasterReqeustDto {
     private String refreshTime;
 
     @ApiModelProperty("航段信息")
-    private List routingInfoList;
-
-
+    private List<LegInfoDto> routingInfoList;
 
     @ApiModelProperty("集装箱信息")
-    private List cntrInfoList;
-
+    private List<ContainerInfoDto> cntrInfoList;
 
     @ApiModelProperty("集装箱状态信息")
-    private List cntrStatusList;
+    private List<ContainerStatusDto> cntrStatusList;
 
-//    private String blNo;
-//    @ApiModelProperty("提单号")
-//    private String statusCd;
-//    @ApiModelProperty("状态代码")
-//    private String stateDescription;
-//    @ApiModelProperty("状态描述")
-//    private String statusTime;
-//    @ApiModelProperty("状态时间")
-//    private String statusPlace;
-//    @ApiModelProperty("状态地点")
-//    private String statusTerminal;
-//    @ApiModelProperty("码头")
-//    private String isEst;
-//    @ApiModelProperty("是否预计时间（Y=是，N=否）")
-//    private String cancelId;
-//    @ApiModelProperty("无效标识（Y=已退载或甩柜）")
-//    private String vslName;
-//    @ApiModelProperty("船名")
-//    private String voy;
-//    @ApiModelProperty("航次")
+
 }
