@@ -2,7 +2,7 @@ server:
   port: 8082 #配置中心端口
 spring:
   application:
-    name: config
+    name: logistics-config
   profiles:
     active: native
   cloud:

@@ -4,6 +4,6 @@ spring:
       profile: syspro
       enabled: true
       discovery:
-        service-id: traffic-config
+        service-id: config
       name:  application
       uri: http://127.0.0.1:8082

@@ -136,14 +136,14 @@ public class HttpRequestUtil {
             while ((str = bufferedReader.readLine()) != null) {
                 stringBuilder.append(str);
             }
-//            log.info("httpRequest URL->" + url);
-//            log.info("httpRequest BODY->" + body);
-//            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
+            log.info("httpRequest URL->" + url);
+            log.info("httpRequest BODY->" + body);
+            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
         }else{
-//            log.info("httpRequest URL->" + url);
-//            log.info("httpRequest BODY->" + body);
-//            log.info("天河接口调用失败;code:"+code);
-//            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
+            log.info("httpRequest URL->" + url);
+            log.info("httpRequest BODY->" + body);
+            log.info("天河接口调用失败;code:"+code);
+            log.info("httpRequest CODE->{}   RESPONSE->{}", code, stringBuilder.toString());
         }
         return stringBuilder.toString();
     }
@@ -195,200 +195,6 @@ public class HttpRequestUtil {
         }
         return stringBuilder.toString();
     }
-
-    /**
-     *
-     * @param carNumber  车牌号  （必传）
-     * @param carType 专题类型 1 大客车 2 泥头车  （必传）
-     * @param startTime  开始时间， 默认一天前
-     * @param endTime 结束时间， 默认当前
-     * @param curr 第几页  默认1
-     * @param limit 页大小  默认 1
-     * @return
-     * @throws IOException
-     */
-    public static CarGPSDataResultVO getGPSData(String carNumber, String carType, String startTime, String endTime, String curr, String limit) throws IOException {
-        JSONObject body = getGpsParams();
-
-        // 各个专题需要改这里
-        if("1".equals(carType)){
-            body.put("crashTableType", CrashTableTypeEnum.STOURISTBUS.getApiType() + "," + CrashTableTypeEnum.SPASSENGER.getApiType());
-        }
-
-        if("2".equals(carType)){
-            body.put("crashTableType",CrashTableTypeEnum.SBULKMATERIAL.getApiType());
-        }
-
-        body.put("mark",carNumber);
-
-        if(StringUtils.isNotBlank(curr)){
-            body.put("curr",curr);
-        }
-        if(StringUtils.isNotBlank(limit)){
-            body.put("limit",limit);
-        }
-
-        if(StringUtils.isNotBlank(startTime)){
-            body.put("startTime",startTime);
-        }
-
-        if(StringUtils.isNotBlank(endTime)){
-            body.put("endTime",endTime);
-        }
-
-        body.put("curr","1");
-        body.put("limit","1");
-
-        String url = ServiceUrlEnum.CK_SEARCH_SERVICE_GEOCRASHWITHCONDITIONS;
-        String token = getGetewayToken(RequestParamsUtil.getUrlToken());   //"bearer cyJunz85NSYrEn8a5SqfPuWs67VSYjuH";
-
-        String s = doApiPost(url, body.toJSONString(), token);
-
-        if(StringUtils.isNotBlank(s) && s.length() > 1){
-            String substring = s.substring(1, s.length() - 1);
-            CarGPSDataResultVO carGPSDataResultVO = JSONObject.parseObject(substring, CarGPSDataResultVO.class);
-            //System.out.println("返回结果： " + JSONObject.toJSONString(carGPSDataResultVO));
-            return carGPSDataResultVO;
-        }
-        return null;
-    }
-
-    /**
-     *  车辆实时定位
-     * @param
-     * @return
-     */
-    public static CarGPSDataResultVO getGPSRealTimeLocation(List<String> carNumbers) throws IOException {
-        //封装参数
-        JSONObject body = new JSONObject();
-        //ArrayList<String> carNumberList = new ArrayList<>();
-       // carNumberList.add(carNumber);
-        body.put("idcardno",carNumbers);
-
-        String url = ServiceUrlEnum.CK_SEARCH_SERVICE_REALTIME_LOCATION;
-        String token = getGetewayToken(RequestParamsUtil.getUrlToken());
-
-        String s = doApiPost(url, body.toJSONString(), token);
-
-        if(StringUtils.isNotBlank(s) && s.length() > 1){
-            // 数据最外层有中括号，去掉
-            String substring = s.substring(1, s.length() - 1);
-            CarGPSDataResultVO carGPSDataResultVO = JSONObject.parseObject(substring, CarGPSDataResultVO.class);
-            //System.out.println("返回结果： " + JSONObject.toJSONString(carGPSDataResultVO));
-            return carGPSDataResultVO;
-        }
-        return null;
-    }
-
-
-//    public static void main(String[] args) {
-//        try {
-//            String carNumber = "粤A03360D";
-//
-//            JSONObject body = getGpsParams();
-//            body.put("mark",carNumber);
-//            body.put("crashTableType", CrashTableTypeEnum.SBUS.getApiType());
-//
-//            String url = "list.add("http://68.60.0.116:8000/search/CkSearchService/scroll/geoCrashWithConditions";
-//            String token = getGetewayToken("https://68.60.0.116:8443/xsp-auth/oauth2/token");//"bearer cyJunz85NSYrEn8a5SqfPuWs67VSYjuH";
-//            System.out.println("token: " + token );
-//            String s = doApiPost(url, body.toJSONString(), token);
-//
-//            if(StringUtils.isNotBlank(s) && s.length() > 1){
-//                String substring = s.substring(1, s.length() - 1);
-//                System.out.println("返回结果 ssss ： " + substring);
-//                CarGPSDataResultVO carGPSDataResultVO = JSONObject.parseObject(substring, CarGPSDataResultVO.class);
-//                System.out.println("返回结果： " + JSONObject.toJSONString(carGPSDataResultVO));
-//            }
-//
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-
-
-    public static JSONObject getGpsParams(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date();
-        String endTime = sdf.format(date);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.HOUR,-24);
-        Date time = calendar.getTime();
-        String startTime = sdf.format(time);
-
-        JSONObject body = new JSONObject();
-        body.put("startTime",startTime);
-        body.put("endTime",endTime);
-        body.put("crashTableType", CrashTableTypeEnum.SBUS.getApiType());
-
-        JSONObject geoPoint1 = new JSONObject();
-        geoPoint1.put("lon","112.96417529318505");
-        geoPoint1.put("lat","23.931499745788496");
-
-        JSONObject geoPoint2 = new JSONObject();
-        geoPoint2.put("lon","112.96417529318505");
-        geoPoint2.put("lat","22.550204411311434");
-
-        JSONObject geoPoint3 = new JSONObject();
-        geoPoint3.put("lon","114.04786132843051");
-        geoPoint3.put("lat","22.550204411311434");
-
-        JSONObject geoPoint4 = new JSONObject();
-        geoPoint4.put("lon","114.04786132843051");
-        geoPoint4.put("lat","23.931499745788496");
-
-        JSONObject geoPoint5 = new JSONObject();
-        geoPoint5.put("lon","112.96417529318505");
-        geoPoint5.put("lat","23.931499745788496");
-
-        ArrayList<JSONObject> geoPoints = new ArrayList<>();
-        geoPoints.add(geoPoint1);
-        geoPoints.add(geoPoint2);
-        geoPoints.add(geoPoint3);
-        geoPoints.add(geoPoint4);
-        geoPoints.add(geoPoint5);
-
-        JSONObject geometryCondition = new JSONObject();
-        geometryCondition.put("geoPoints",geoPoints);
-        geometryCondition.put("geoType","polygon");
-        geometryCondition.put("meter","");
-
-        ArrayList<JSONObject> geometryConditions = new ArrayList<>();
-        geometryConditions.add(geometryCondition);
-        body.put("geometryCondition",geometryConditions);
-
-
-        body.put("curr","1");
-        body.put("limit","1");
-        body.put("isagg",false);
-        body.put("countlimit",10);
-        body.put("extendTime",2);
-        body.put("isflogShow",1);
-
-        return body;
-    }
-
-    //"geometryCondition":{"geoType":"polygon","meter":"","geoPoints":[{"lon":"112.96417529318505","lat":"23.931499745788496"},{"lon":"112.96417529318505","lat":"22.550204411311434"},{"lon":"114.04786132843051","lat":"22.550204411311434"},{"lon":"114.04786132843051","lat":"23.931499745788496"},{"lon":"112.96417529318505","lat":"23.931499745788496"}]}
-
-
-    /**
-     * post请求
-     *
-     * @param url
-     * @param
-     * @return
-     */
-    public static String doTianHePost(String url, String tokenUrl, String body) throws IOException {
-        //获取天河网关token
-        String accessToken = getGetewayToken(tokenUrl);
-        System.out.println("accessToken=" + accessToken);
-        String res = doApiPost(url, body, accessToken);
-        return res;
-    }
-
-
-
 
     /**
      * 获取数据域数据
@@ -454,10 +260,10 @@ public class HttpRequestUtil {
         String accessToken = "";
         //解析接口返回数据
         Map<String, String> mapBody = new HashMap<String, String>();
-        mapBody.put("client_id", "zhjgzt");
-        mapBody.put("client_secret", "8f3d82c9632a4e60a84ca4b9e04608eb");
-        mapBody.put("grant_type", "client_credentials");
-        mapBody.put("scope", "email");
+        mapBody.put("appid", "ZZBH");
+        mapBody.put("secret", "202105281005246600485D-ED5J-4962-9B29-42009F868290");
+//        mapBody.put("grant_type", "client_credentials");
+//        mapBody.put("scope", "email");
         String body = JSONObject.toJSONString(mapBody);
         //accessToken = doApiPost(tokenUrl, body, "");
         if (null == RedisUtil.get("accessToken")) {

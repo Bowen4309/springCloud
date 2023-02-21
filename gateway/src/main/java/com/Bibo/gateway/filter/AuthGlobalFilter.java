@@ -40,12 +40,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         //内部服务接口，不允许外部访问
         if(antPathMatcher.match("/**/loginUser", path)
                 ||antPathMatcher.match("/**/api-docs", path)
-                ||antPathMatcher.match("/**/checkKey/keyCheck", path)
-                ||antPathMatcher.match("/**/**/carPicture", path)
-                ||antPathMatcher.match("/**/**/disqualifyPicture", path)
-                ||antPathMatcher.match("/**/**/findBaseCarPiture", path)
-                ||antPathMatcher.match("/**/**/downFileData", path)
-                ||antPathMatcher.match("/**/**/getPicture",path)) {
+                ||antPathMatcher.match("/**/business/**",path) ){
             return chain.filter(exchange);
         }
         //校验用户必须登录

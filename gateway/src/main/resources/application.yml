@@ -16,7 +16,7 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
 spring:
   application:
-    name: traffic-getway
+    name: logistics-gateway
   profiles:
     active: dev
   cloud:
@@ -37,30 +37,22 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: traffic-map-api
-          uri: lb://traffic-map-api
+        - id: logistics-system
+          uri: lb://logistics-system
           predicates:
-            - Path=/trafficMap/**
-        - id: traffic-system
-          uri: lb://traffic-system
+            - Path=/system/**
+        - id: logistics-job
+          uri: lb://logistics-job
           predicates:
-            - Path=/trafficSystem/**
-        - id: traffic-analyse-api
-          uri: lb://traffic-analyse-api
+            - Path=/job/**
+        - id: logistics-business
+          uri: lb://logistics-business
           predicates:
-            - Path=/trafficAnalyse/**
-        - id: traffic-job-api
-          uri: lb://traffic-job-api
+            - Path=/business/**
+        - id: logistics-plug
+          uri: lb://logistics-plug
           predicates:
-            - Path=/trafficJob/**
-        - id: traffic-business-api
-          uri: lb://traffic-business-api
-          predicates:
-            - Path=/trafficBusinessApi/**
-        - id: traffic-plug
-          uri: lb://traffic-plug
-          predicates:
-            - Path=/trafficPlug/**
+            - Path=/plug/**
       default-filters:
         DedupeResponseHeader : Access-Contro-Allow-Orgin Access-Control-Allow-Credentials Vary,RETAIN_UNIQUE
   security:

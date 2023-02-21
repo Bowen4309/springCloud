@@ -6,7 +6,7 @@ server:
 spring:
     application:
         # 服务名称 - 服务之间使用名称进行通讯
-        name: business
+        name: logistics-business
 
 swagger:
     enabled: true

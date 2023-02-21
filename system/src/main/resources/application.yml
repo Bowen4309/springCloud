@@ -2,11 +2,11 @@ server:
     servlet:
         context-path: /system
     # 服务端口号
-    port: 8091
+    port: 8092
 spring:
     application:
         # 服务名称 - 服务之间使用名称进行通讯
-        name: system
+        name: logistics-system
 
 swagger:
     enabled: true
