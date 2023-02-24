@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @ApiModel(value = "ContainerInfoDto",description = "集装箱信息")
 public class ContainerInfoDto {
@@ -49,4 +51,7 @@ public class ContainerInfoDto {
 
     @ApiModelProperty("是否可提重箱 (仅支持部分船司)")
     private String pickupAvailable;
+
+    @ApiModelProperty("集装箱状态信息")
+    private List<ContainerStatusDto> cntrStatusList;
 }

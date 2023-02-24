@@ -24,7 +24,7 @@ public class ShippingController {
     @SysLog(title="订阅船司数据获取", operatorType= OperatorTypeEnum.SEARCH)
     @ApiOperation(value = "订阅船司数据获取")
     @PostMapping("/orderShipmasterData")
-    public Response orderShipmasterData(@RequestBody OrderShipRequestDto orderShipRequestDTO){
+    public Response orderShipmasterData(@RequestBody List<OrderShipRequestDto> orderShipRequestDTO){
         return shippingService.orderShipmasterData(orderShipRequestDTO);
     }
 

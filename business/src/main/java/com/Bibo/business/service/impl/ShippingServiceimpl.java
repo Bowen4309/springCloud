@@ -16,11 +16,13 @@ import java.util.List;
 @Service
 public class ShippingServiceimpl implements ShippingService {
     @Override
-    public Response orderShipmasterData(OrderShipRequestDto orderShipRequestDTO) {
+    public Response orderShipmasterData(List<OrderShipRequestDto> orderShipRequestDTO) {
         try {
             String token = GetTokenUtil.getTaiTToken();
-            String  result = HttpRequestUtil.doApiPost(TaiTBusinessUrl.TAIT_ORDER_SHIP_URL, JSONObject.toJSONString(orderShipRequestDTO),token);
-            return Response.success().data(JSONObject.parseObject(result));
+            String  response = HttpRequestUtil.doApiPost(TaiTBusinessUrl.TAIT_ORDER_SHIP_URL, JSONObject.toJSONString(orderShipRequestDTO),token);
+            String data = JSONObject.parseObject(response).getString("data");
+            List<ShipmasterReqeustDto> shipmasterReqeustDtos = JSONObject.parseArray(data,ShipmasterReqeustDto.class);
+            return Response.success().data(shipmasterReqeustDtos);
         } catch (IOException e) {
             e.printStackTrace();
         }

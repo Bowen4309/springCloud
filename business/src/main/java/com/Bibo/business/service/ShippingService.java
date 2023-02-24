@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ShippingService {
 
-    Response orderShipmasterData(OrderShipRequestDto orderShipRequestDTO);
+    Response orderShipmasterData(List<OrderShipRequestDto> orderShipRequestDTO);
 
     Response getShipmasterData(List<ShipmasterReqeustDto> shipmasterReqeustDtoList);
 }

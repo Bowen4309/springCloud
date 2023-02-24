@@ -121,8 +121,7 @@ public class ShipmasterReqeustDto {
     @ApiModelProperty("集装箱信息")
     private List<ContainerInfoDto> cntrInfoList;
 
-    @ApiModelProperty("集装箱状态信息")
-    private List<ContainerStatusDto> cntrStatusList;
+
 
 
 }

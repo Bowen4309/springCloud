@@ -115,7 +115,7 @@ public class HttpRequestUtil {
         //添加请求参数
         // postMethod.addParameter("commentId", json.getString("commentId"));
         if (StringUtils.isNotEmpty(token)) {
-            postMethod.addRequestHeader("Authorization", token);
+            postMethod.addRequestHeader("x-token", token);
         }
 
         StringBuilder stringBuilder = new StringBuilder();
